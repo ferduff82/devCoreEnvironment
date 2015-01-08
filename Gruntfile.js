@@ -84,6 +84,16 @@ module.exports = function (grunt) {
         all: ['Gruntfile.js','www/js/*.js']
     },
 
+    wiredep: {
+      task: {
+        src: [
+          'app/views/**/*.html'
+        ],
+        options: {
+        }
+      }
+    },
+
     open: {
       all: {
         path: 'http://localhost:8080/index.html'
