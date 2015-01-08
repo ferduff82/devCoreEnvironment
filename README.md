@@ -3,7 +3,7 @@ Cordova mobile app to get started.
 
 <pre>npm install</pre>
 <h4>2) In case you need to work behing a proxy Run:</h4>
-<pre>git config --global url."https://".insteadOf git://</pre><br/>
+<pre>git config --global url."https://".insteadOf git://</pre>
 (make sure you have installed GIT)
 <pre>bower install</pre>
 <pre>grunt</pre>
