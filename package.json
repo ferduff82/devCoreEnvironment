@@ -20,7 +20,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express": "^1.4.1",
     "grunt-open": "^0.2.3",
-    "grunt-wiredep": "^2.0.0",
     "matchdep": "^0.3.0"
   }
 }
