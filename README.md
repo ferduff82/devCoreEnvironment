@@ -5,7 +5,7 @@ Install Node packages
 <pre>npm install</pre>
 In case you need to work behing a proxy Run:
 <pre>git config --global url."https://".insteadOf git://</pre>
-(make sure you have installed GIT)
+(make sure you have installed GIT)<br/>
 Install Bower dependencies
 <pre>bower install</pre>
 <h5>Builds the project on browser and open port to work on Livereload</h5>
