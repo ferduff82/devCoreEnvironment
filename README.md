@@ -8,5 +8,7 @@ git config --global url."https://".insteadOf git:// <br/>
 <h4>3) Run bower install</h4>
 <h4>4) Run grunt</h4>
 Builds the project on browser and open port to work on Livereload
-<h4>5) Run cordova run android</h4>
+<h4>5) Run cordova platform add android/IOS</h4>
+To Add an android/IOS platform to your project
+<h4>6) Run cordova run android</h4>
 Builds the project on mobile device
