@@ -8,9 +8,9 @@ In case you need to work behing a proxy Run:
 (make sure you have installed GIT)
 Install Bower dependencies
 <pre>bower install</pre>
-Builds the project on browser and open port to work on Livereload
+<h5>Builds the project on browser and open port to work on Livereload</h5>
 <pre>grunt</pre>
 To Add an android/IOS platform to your project
 <pre>cordova platform add android/IOS</pre>
-Builds the project on mobile device
+<h5>Builds the project on mobile device</h5>
 <pre>cordova run android</pre>
