@@ -9,7 +9,7 @@ module.exports = function (grunt) {
     express: {
       all: {
         options: {
-          bases: ['C:\\mobileApps\\CoreApps\\core\\www'],
+          bases: ['C:\\Users\\fernando.arias\\Documents\\lastone\\www'],
           port: 8080,
           hostname: "0.0.0.0",
           livereload: true,
@@ -85,6 +85,12 @@ module.exports = function (grunt) {
         all: ['Gruntfile.js','www/js/*.js']
     },
 
+    wiredep: {
+      task: {
+        src: ['www/index.html'],
+      }
+    },
+
     open: {
       all: {
         path: 'http://localhost:8080/index.html'
@@ -94,6 +100,6 @@ module.exports = function (grunt) {
  });
 
  // Run Default task(s).
- grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','express','open','watch']);
+ grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','wiredep','express','open','watch']);
 
 };
