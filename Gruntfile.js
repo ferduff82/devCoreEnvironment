@@ -12,7 +12,8 @@ module.exports = function (grunt) {
           bases: ['C:\\mobileApps\\CoreApps\\core\\www'],
           port: 8080,
           hostname: "0.0.0.0",
-          livereload: true
+          livereload: true,
+          serverreload: false,
         }
       }
     },
