@@ -49,7 +49,7 @@ module.exports = function (grunt) {
     sass: {                              
       dist: {                            
         options: {                       
-          style: 'expanded'
+          style: 'expanded',
         },
         files: [{
           expand: true,
@@ -85,6 +85,17 @@ module.exports = function (grunt) {
         all: ['Gruntfile.js','www/js/*.js']
     },
 
+    imagemin: {                          
+      dynamic: {                        
+        files: [{
+          expand: true,            
+          cwd: 'www/img/',                      
+          src: ['**/*.{png,jpg,gif,svg}'],   
+          dest: 'www/dest/img'                  
+        }]
+      }
+    },
+
     wiredep: {
       task: {
         src: ['www/index.html'],
@@ -100,6 +111,6 @@ module.exports = function (grunt) {
  });
 
  // Run Default task(s).
- grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','wiredep','express','open','watch']);
+ grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','imagemin','wiredep','express','open','watch']);
 
 };
