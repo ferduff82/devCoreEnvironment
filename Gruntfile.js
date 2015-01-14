@@ -107,9 +107,9 @@ module.exports = function (grunt) {
       }
     }
 
- });
+  });
 
- /* Run Default tasks */
- grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','imagemin','wiredep','express','open','watch']);
+  /* Run Default tasks */
+  grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','imagemin','wiredep','express','open','watch']);
 
 };
