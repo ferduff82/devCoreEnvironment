@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
 
-  // Load Grunt tasks declared in the package.json file
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.initConfig({
@@ -109,7 +108,6 @@ module.exports = function (grunt) {
 
   });
 
-  /* Run Default tasks */
   grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','imagemin','wiredep','express','open','watch']);
 
 };
