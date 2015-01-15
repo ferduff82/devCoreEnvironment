@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     express: {
       all: {
         options: {
-          bases: ['C:\\Users\\fernando.arias\\Documents\\lastone\\www'],
+          bases: ['www'],
           port: 8080,
           hostname: "0.0.0.0",
           livereload: true,
