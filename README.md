@@ -8,8 +8,6 @@ In case you need to work behing a proxy Run:
 (make sure you have installed GIT)<br/><br/>
 Install Bower dependencies
 <pre>bower install</pre>
-<h5>Open the Gruntfile and change the location to where your index file lives to make express work</h5>
-<pre>bases: ['C:\\Users\\fernando.arias\\Documents\\lastone\\www'],</pre>
 <h5>Builds the project on browser and open port to work on Livereload</h5>
 <pre>grunt</pre>
 To Add an android/IOS platform to your project
