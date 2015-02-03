@@ -1,6 +1,5 @@
 # mobileCore
 Cordova mobile app to get started.<br/>
-(this Core project uses Angular as JS framework, if Backbone is what you need then use the <br/><strong>mobileCore/Backbone</strong> core project).
 
 Install Node packages
 <pre>npm install</pre>
@@ -15,3 +14,4 @@ To Add an android/IOS platform to your project
 <pre>cordova platform add android/IOS</pre>
 <h5>Builds the project on mobile device</h5>
 <pre>cordova run android</pre>
+(this Core project uses Angular as JS framework, if Backbone is what you need then use the <br/><strong>mobileCore/Backbone</strong> core project).
