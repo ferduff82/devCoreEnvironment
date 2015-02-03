@@ -14,5 +14,5 @@ To Add an android/IOS platform to your project
 <pre>cordova platform add android/IOS</pre>
 <h5>Builds the project on mobile device</h5>
 <pre>cordova run android</pre>
-<strong>Important:</strong><br/>
+<strong>Important:</strong>
 This Core project uses Angular as JS framework, if Backbone is what you need then use the <br/><strong>mobileCore/Backbone</strong> core project.
