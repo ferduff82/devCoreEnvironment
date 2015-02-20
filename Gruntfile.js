@@ -27,6 +27,21 @@ module.exports = function (grunt) {
       }
     },
 
+    devUpdate: {
+      main: {
+        options: {
+          updateType: 'prompt', // Prompt user to confirm update of every package
+          reportUpdated: false, // Don't report already updated packages
+          semver: false, // Use package.json semver rules when updating
+          packages: { // What packages to check
+            devDependencies: true, // Outdated devDependencies are installed using the --save-dev option
+            dependencies: false // Outdated dependencies are installed using the --save option
+          },
+          packageJson: null // Find package.json automatically
+        }
+      }
+    },
+
     uglify: {
       options: {
         mangle: false,
@@ -36,7 +51,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: [{
-          cwd: 'www/js/',
+          cwd: 'www/dest/js/',
           expand: true,
           src: '*.js',
           dest: 'www/dest/js/'
@@ -104,10 +119,46 @@ module.exports = function (grunt) {
       all: {
         path: 'http://localhost:8080/index.html'
       }
+    },
+
+    uncss: {
+      dist: {
+        files: {
+          'www/dest/css/core.css': ['www/index.html'] // to add more pages use , 'www/contact.html' for example
+        }
+      }
+    },
+
+    clean: {
+      sass: {
+        src: ['.sass-cache/*']
+      }
+    },
+
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['www/js/*'],
+        dest: 'www/dest/js/main.js',
+      },
+    },
+
+    jasmine: {
+      pivotal: {
+        src: 'www/dest/js/*.js',
+        options: {
+          specs: 'www/unit/*.js',
+          helpers: 'www/unit/helper.js'
+        }
+      }
     }
 
   });
 
-  grunt.registerTask('default', ['jshint','uglify','sass','csslint','autoprefixer','imagemin','wiredep','express','open','watch']);
+  grunt.registerTask('default', ['jshint','concat','uglify','sass','csslint','uncss','autoprefixer','clean','imagemin','wiredep','express','open','watch']);
+  grunt.registerTask('unit', ['jasmine']);
+  grunt.registerTask('update', ['devUpdate']);
 
 };
