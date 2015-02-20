@@ -18,8 +18,8 @@ module.exports = function (grunt) {
 
     watch: {
       scripts: {
-        files: ['www/css/*.scss','www/js/*js'],
-        tasks: ['sass','autoprefixer','jshint','uglify'],
+        files: ['www/css/*.scss','www/js/*js','www/index.html'],
+        tasks: ['sass','uncss','autoprefixer','jshint','concat','uglify'],
         options: {
           spawn: false,
           livereload: true
