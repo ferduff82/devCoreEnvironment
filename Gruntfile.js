@@ -59,6 +59,14 @@ module.exports = function (grunt) {
       }
     },
 
+    sprite:{
+      all: {
+        src: 'www/dest/img/*.png',
+        dest: 'www/dest/img/sprite/spritesheet.png',
+        destCss: 'www/css/sprite.scss'
+      }
+    },
+
     sass: {                              
       dist: {                            
         options: {                       
@@ -157,7 +165,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('default', ['jshint','concat','uglify','sass','csslint','uncss','autoprefixer','clean','imagemin','wiredep','express','open','watch']);
+  grunt.registerTask('default', ['jshint','concat','uglify','imagemin','sprite','sass','csslint','uncss','autoprefixer','clean','wiredep','express','open','watch']);
   grunt.registerTask('unit', ['jasmine']);
   grunt.registerTask('update', ['devUpdate']);
 
