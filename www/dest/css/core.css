@@ -44,115 +44,7 @@ body {
 
 /* Portrait layout (default) */
 
-.app {
-  background: url(../../dest/img/logo.png) no-repeat center top;
-  /* 170px x 200px */
-  position: absolute;
-  /* position in the center of the screen */
-  left: 50%;
-  top: 50%;
-  height: 50px;
-  /* text area height */
-  width: 225px;
-  /* text area width */
-  text-align: center;
-  padding: 180px 0px 0px 0px;
-  /* image height is 200px (bottom 20px are overlapped with text) */
-  margin: -115px 0px 0px -112px;
-  /* offset vertical: half of image height and text area height */
-  /* offset horizontal: half of text area width */
-}
-
 /* Landscape layout (with min-width) */
-
-@media screen and (min-aspect-ratio: 1 / 1) and (min-width: 400px) {
-  .app {
-    background-position: left center;
-    padding: 75px 0px 75px 170px;
-    /* padding-top + padding-bottom + text area = image height */
-    margin: -90px 0px 0px -198px;
-    /* offset vertical: half of image height */
-    /* offset horizontal: half of image width and text area width */
-  }
-}
-
-h1 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0px;
-  overflow: visible;
-  padding: 0px;
-  text-align: center;
-}
-
-.event {
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  color: #FFFFFF;
-  font-size: 12px;
-  margin: 0px 30px;
-  padding: 2px 0px;
-}
-
-.event.listening {
-  background-color: #333333;
-  display: block;
-}
-
-.event.received {
-  background-color: #4B946A;
-  display: none;
-}
-
-@-o-keyframes fade {
-  from {
-    opacity: 1.0;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-
-  to {
-    opacity: 1.0;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 1.0;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-
-  to {
-    opacity: 1.0;
-  }
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 1.0;
-  }
-
-  50% {
-    opacity: 0.4;
-  }
-
-  to {
-    opacity: 1.0;
-  }
-}
-
-.blink {
-  -o-animation: fade 3000ms infinite;
-     animation: fade 3000ms infinite;
-  -webkit-animation: fade 3000ms infinite;
-}
-
-/*# sourceMappingURL=core.css.map */
 
 /*** uncss> filename: www/dest/css/sprite.css ***/
 
@@ -189,12 +81,10 @@ The `sprites` mixin generates identical output to the CSS template
 @include sprites($spritesheet-sprites);
 */
 
-/*# sourceMappingURL=sprite.css.map */
-
 /*** uncss> filename: www/bower_components/bootstrap/dist/css/bootstrap.css ***/
 
 /*!
- * Bootstrap v3.3.2 (http://getbootstrap.com)
+ * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -211,9 +101,18 @@ body {
   margin: 0;
 }
 
-h1 {
-  margin: .67em 0;
-  font-size: 2em;
+header,
+nav {
+  display: block;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
 }
 
 button::-moz-focus-inner,
@@ -235,9 +134,21 @@ input::-moz-focus-inner {
     box-shadow: none !important;
   }
 
-  p {
-    orphans: 3;
-    widows: 3;
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  .navbar {
+    display: none;
   }
 }
 
@@ -273,24 +184,51 @@ body {
   background-color: #fff;
 }
 
-h1 {
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-  color: inherit;
+a {
+  color: #337ab7;
+  text-decoration: none;
 }
 
-h1 {
-  margin-top: 20px;
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+ul {
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
-h1 {
-  font-size: 36px;
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-p {
-  margin: 0 0 10px;
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 
 .form-control::-moz-placeholder {
@@ -300,6 +238,157 @@ p {
 
 .form-control:-ms-input-placeholder {
   color: #999;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-header {
+    float: left;
+  }
+}
+
+.container > .navbar-header {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  .container > .navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand {
+    margin-left: -15px;
+  }
+}
+
+.navbar-nav {
+  margin: 7.5px -15px;
+}
+
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+
+  .navbar-nav > li {
+    float: left;
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+  }
+}
+
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+  color: #777;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+}
+
+.container:before,
+.container:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after {
+  display: table;
+  content: " ";
+}
+
+.container:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after {
+  clear: both;
 }
 
 @-ms-viewport {
@@ -324,7 +413,28 @@ p {
   font-style: normal;
 }
 
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* makes the font 33% larger relative to the icon container */
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
+
+.fa-home:before {
+  content: "\f015";
+}
+
+.fa-comment:before {
+  content: "\f075";
+}
+
+.fa-shield:before {
+  content: "\f132";
+}

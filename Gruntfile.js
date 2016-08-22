@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     watch: {
       scripts: {
         files: ['www/css/*.scss','www/js/*js','www/index.html'],
-        tasks: ['sass','uncss','autoprefixer','jshint','concat','uglify'],
+        tasks: ['sass','uncss','autoprefixer','jshint','concat'],
         options: {
           spawn: false,
           livereload: true
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 
     sprite:{
       all: {
-        src: 'www/dest/img/*.png',
+        src: ['www/img/*.png', 'www/img/*.jpeg', 'www/img/*.jpg', 'www/img/*.svg'],
         dest: 'www/dest/img/sprite/spritesheet.png',
         destCss: 'www/css/sprite.scss'
       }
@@ -106,17 +106,6 @@ module.exports = function (grunt) {
         all: ['Gruntfile.js','www/js/*.js']
     },
 
-    imagemin: {                          
-      dynamic: {                        
-        files: [{
-          expand: true,            
-          cwd: 'www/img/',                      
-          src: ['**/*.{png,jpg,gif,svg}'],   
-          dest: 'www/dest/img'                  
-        }]
-      }
-    },
-
     wiredep: {
       task: {
         src: ['www/index.html'],
@@ -132,7 +121,7 @@ module.exports = function (grunt) {
     uncss: {
       dist: {
         files: {
-          'www/dest/css/core.css': ['www/index.html'] // to add more pages use , 'www/contact.html' for example
+          'www/dest/css/core.css': ['www/index.html'] 
         }
       }
     },
@@ -148,25 +137,15 @@ module.exports = function (grunt) {
         separator: ';',
       },
       dist: {
-        src: ['www/js/*'],
-        dest: 'www/dest/js/main.js',
+        src: ['www/js/models.js','www/js/*'],
+        dest: 'www/dest/js/main.js'
       },
     },
 
-    jasmine: {
-      pivotal: {
-        src: 'www/dest/js/*.js',
-        options: {
-          specs: 'www/unit/*.js',
-          helpers: 'www/unit/helper.js'
-        }
-      }
-    }
-
   });
 
-  grunt.registerTask('default', ['jshint','concat','uglify','imagemin','sprite','sass','csslint','uncss','autoprefixer','clean','wiredep','express','open','watch']);
-  grunt.registerTask('unit', ['jasmine']);
+  grunt.registerTask('prod', ['jshint','concat','uglify','sprite','sass','csslint','uncss','autoprefixer','clean','wiredep','express','open','watch']);
+  grunt.registerTask('dev', ['jshint','concat','sprite','sass','csslint','uncss','autoprefixer','clean','wiredep','express','open','watch']);
   grunt.registerTask('update', ['devUpdate']);
 
 };

@@ -1,29 +1,4 @@
 
-var virtualDisco = angular.module('virtualDisco', ['ngRoute']);
-
-virtualDisco.factory('mainClassUser', function($http) {
-
-    var mainUserClass = function(username, edad, sex, email, password) {
-        this.username = username;
-        this.edad = edad;
-        this.sex = sex;
-        this.email = email;
-        this.password = password;
-    };
-    return mainUserClass;
-});
-
-virtualDisco.factory('mainClassDiscos', function($http) {
-
-    var mainDiscoClass = function(nombre, capacidad, cantBarras, reservados, freePass) {
-        this.nombre = nombre;        
-        this.capacidad = capacidad;
-        this.cantBarras = cantBarras;
-        this.reservados = reservados;
-        this.freePass = freePass;
-    };
-    return mainDiscoClass;
-});;
 virtualDisco.controller('userInstance',['$scope','mainClassUser', '$location', function ($scope, mainClassUser, $location) {
     $scope.send = function() {
         var user = new mainClassUser( $scope.username, $scope.edad, $scope.sex, $scope.email, $scope.password );
@@ -65,22 +40,4 @@ virtualDisco.controller('bolichesControllerSuccess',['$scope', '$routeParams', '
     $scope.showCantBarras = $routeParams.boliches.cantBarras;
     $scope.showReservados = $routeParams.boliches.reservados;    
     $scope.showFreePass = $routeParams.boliches.freePass; 
-}]);;virtualDisco.config(function($routeProvider, $locationProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl : 'home.html',
-            controller  : 'userInstance'
-        })
-        .when('/addBoliches', {
-            templateUrl : 'addBoliches.html',
-            controller  : 'bolichesInstance'
-        })
-        .when('/boliches', {
-            templateUrl : 'boliches.html',
-            controller  : 'bolichesController'
-        })
-        .when('/boliches-success', {
-            templateUrl : 'boliches-success.html',
-            controller  : 'bolichesControllerSuccess'
-        });
-});
+}]);
