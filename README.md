@@ -1,5 +1,5 @@
-# mobileCore
-Cordova mobile app to get started.<br/>
+# devCoreEnvironment
+Dev Core app to get started.<br/>
 
 Install Node packages
 <pre>npm install</pre>
